@@ -2,7 +2,11 @@
 
 ## Introduction
 
-`buildnumber` is a terminal tool that maintains a yaml `Buildfile` in the current directory with an ascending integer.  A future version will support semantic.
+`buildnumber` is a terminal tool that maintains build numbers.
+
+The yaml file `Buildfile` is created in the current directory.  You can choose either `integer` or `semantic` versioning.
+
+The `Buildfile` can contain an arbitrary number of build numbers; you refer to each one by its `name`.
 
 
 ## Installation
@@ -13,27 +17,27 @@
 
 In your current directory, a file `Buildfile` will be created and maintained by `buildnumber`.  I use a single `Buildfile` per project.
 
-To see the current buildnumber 
+### To see the current buildnumber 
 
 `buildnumber get`
 
-To increment it
+### To increment it
 
 `buildnumber increment`
 
-To see what the next number is without incrementing
+### To see what the next number is without incrementing
 
 `buildnumber increment -dry_run`
 
-To force set a number
+### To force set a number
 
 `buildnumber set N`
 
-To see help
+### To see help
 
 `buildnumber help`
 
-To get the version of buildnumber itself
+### To get the version of buildnumber itself
 
 `buildnumber version`
 
@@ -41,7 +45,7 @@ To get the version of buildnumber itself
 
 |option|description|
 |------|------------
-`-name` |By default, the namespace `default` will be used as the application name.  If you want to maintain multiple buildnumbers, use `-name xxx` for each different thing you maintain.
+`-name` |By default, the name `default` will be used. If you want to maintain multiple buildnumbers in the same file, use `-name xxx` for each different thing you maintain.
 `-file`|The file `Buildfile` will be read/written to in the current directory.  If you want to use a different file, use `-file`|
 
 ## Developing
@@ -49,11 +53,16 @@ To get the version of buildnumber itself
 Pull requests welcome!
 
 	git clone github.com/simonski/buildnumber
-	cd buildnumber
+	cd buildnumber/python
 	mkvirtualenv buildnumber
-	pip install -e .
+	make
 
 ## Future Plans
 
-- Semantic versioning.
 - Build history (when it was incremented)
+- Document the yaml as a specification
+- snapshotting/release mode?
+- API for talking back to the Buildfile 
+- `brew install buildnumber`
+- go implementation
+- **DONE v1.0.1** Semantic versioning.
