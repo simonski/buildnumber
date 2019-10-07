@@ -1,0 +1,6 @@
+d_app:
+  type: integer
+  version: 1
+j_app:
+  type: semantic
+  version: 0.1.4

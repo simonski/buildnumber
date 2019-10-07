@@ -1,3 +1,0 @@
-import buildnumber
-
-buildnumber.main()

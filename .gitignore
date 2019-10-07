@@ -1,5 +1,5 @@
 **/__pycache__/*
-build/*
-dist/*
-buildnumber.egg-info/*
+python/build/*
+python/dist/*
+python/buildnumber.egg-info/*
 *.swp
