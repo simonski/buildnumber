@@ -21,6 +21,9 @@ name2:
         2: date
 """
 
+DEFAULT_NAME = "default"
+DEFAULT_TYPE = "semantic"
+
 
 class Buildfile:
     def __init__(self, filename):
@@ -34,14 +37,26 @@ class Buildfile:
         else:
             return {}
 
+    def init(self, name, init_type):
+        info = {}
+        info["type"] = init_type
+        self.data[name] = info
+        info["version"] = self.get(name)
+
     def save(self):
         f = open(self.filename, "w")
         f.write(yaml.dump(self.data, sort_keys=True))
         f.close()
 
-    def get(self, name):
+    def get(self, name=DEFAULT_NAME):
         info = self.data.get(name) or {}
-        version = info.get("version") or "0"
+        version_type = info.get("type") or DEFAULT_TYPE
+        if version_type == "integer":
+            default_version = "0"
+        else:
+            default_version = "0.0.0"
+
+        version = info.get("version") or default_version
         return str(version)
 
     def set(self, name, value):
@@ -49,16 +64,32 @@ class Buildfile:
         self.data[name] = info
         info["version"] = value
 
-    def increment(self, name):
+    def split_semantic_version(self, version):
+        splits = version.split(".")
+        return splits[0], splits[1], splits[2]
+
+    def increment(self, name, increment_type="revision"):
         info = self.data.get(name) or {}
         self.data[name] = info
-        version_type = info.get("type") or "integer"
+        version_type = info.get("type") or DEFAULT_TYPE
         info["type"] = version_type
 
-        old_version = info.get("version") or "0"
         if version_type == "semantic":
-            new_version = old_version
+            old_version = info.get("version") or "0.0.0"
+            major, minor, revision = self.split_semantic_version(old_version)
+            if increment_type == "revision":
+                revision = str(int(revision) + 1)
+            elif increment_type == "minor":
+                minor = str(int(minor) + 1)
+                revision = "0"
+            elif increment_type == "major":
+                major = str(int(major) + 1)
+                minor = "0"
+                revision = "0"
+            new_version = major + "." + minor + "." + revision
+
         elif version_type == "integer":
+            old_version = info.get("version") or "0"
             new_version = int(old_version) + 1
 
         info["version"] = new_version

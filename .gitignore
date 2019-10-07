@@ -1,4 +1,4 @@
-buildnumber/__pycache__/*
+**/__pycache__/*
 build/*
 dist/*
 buildnumber.egg-info/*

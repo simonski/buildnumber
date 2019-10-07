@@ -1,0 +1,12 @@
+app1:
+  type: semantic
+  version: 0.0.1
+app2:
+  type: semantic
+  version: 0.0.2
+app3:
+  type: semantic
+  version: 0.0.3
+app4:
+  type: integer
+  version: 34

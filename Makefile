@@ -19,7 +19,7 @@ clean:
 test:
 	python setup.py test
 
-build: clean
+build: clean test
 	python setup.py bdist_wheel --universal
 
 upload: clean build
