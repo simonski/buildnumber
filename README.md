@@ -24,7 +24,9 @@ In your current directory, a file `Buildfile` will be created and maintained by 
 ### To increment it
 
 `buildnumber increment` or `buildnumber increment revision` to increment the revision number.
+
 `buildnumber increment minor`
+
 `buildnumber increment major`
 
 ### To see what the next number is without incrementing
