@@ -4,7 +4,7 @@
 
 `buildnumber` is a terminal tool that maintains build numbers.
 
-The yaml file `Buildfile` is created in the current directory.  You can choose either `integer` or `semantic` versioning.
+The yaml file `Buildfile` is created in the current directory.  You can choose either `integer` or [`semantic` versioning](https://semver.org).
 
 The `Buildfile` can contain an arbitrary number of build numbers; you refer to each one by its `name`.
 
@@ -23,15 +23,13 @@ In your current directory, a file `Buildfile` will be created and maintained by 
 
 ### To increment it
 
-`buildnumber increment`
+`buildnumber increment` or `buildnumber increment revision` to increment the revision number.
+`buildnumber increment minor`
+`buildnumber increment major`
 
 ### To see what the next number is without incrementing
 
 `buildnumber increment -dry_run`
-
-### To force set a number
-
-`buildnumber set N`
 
 ### To see help
 
