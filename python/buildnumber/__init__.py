@@ -1,15 +1,18 @@
 import sys
-from buildnumber import objects, utils, constants
+from buildnumber import objects, exceptions, constants
+from pycommon.cli import CLI
 
 
 def do_help():
-    print("buildnumber, usage:")
+    print("buildnumber v" + constants.VERSION)
+    print("")
+    print("Usage:")
     print("")
     print(
         "buildnumber COMMAND OPTIONS   (-name <app name>) (-file <override filename>)"
     )
     print("")
-    print("  init       -type integer|semantic   - initialise a Buildfile entry")
+    print("  init      -type integer|semantic    - initialise a Buildfile entry")
     print(
         "  increment (major|minor|revision)    - increment by 1 (-dry_run - no increment)"
     )
@@ -20,7 +23,7 @@ def do_help():
 
 
 def main():
-    cli = utils.CLI()
+    cli = CLI()
     command = cli.get_command()
     if cli.contains("-f"):
         filename = cli.get("-f")

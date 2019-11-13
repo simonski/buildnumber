@@ -32,8 +32,8 @@ class Buildfile:
 
     def load(self):
         if os.path.isfile(self.filename):
-            f = open(self.filename, "r")
-            return yaml.load(f, Loader=yaml.FullLoader)
+            with open(self.filename, "r") as f:
+                return yaml.load(f, Loader=yaml.FullLoader)
         else:
             return {}
 
@@ -44,9 +44,8 @@ class Buildfile:
         info["version"] = self.get(name)
 
     def save(self):
-        f = open(self.filename, "w")
-        f.write(yaml.dump(self.data, sort_keys=True))
-        f.close()
+        with open(self.filename, "w") as f:
+            f.write(yaml.dump(self.data, sort_keys=True))
 
     def get(self, name=DEFAULT_NAME):
         info = self.data.get(name) or {}

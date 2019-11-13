@@ -5,9 +5,15 @@
 Drawing from [https://help.github.com/en/articles/github-community-guidelines](https://help.github.com/en/articles/github-community-guidelines), this is the first cut of the contributions/developer guide.  I'll list out the guidelines we'd follow as a community:
 
 1. be kind
-2. write your contributions on `features/xxxx` and do PRs to `develop`
-3. PRs are applied as squashed merges from `feature` -> `develop` -> `master`
-4. admins do `develop` -> `master` merges as part of a release
-4. semantic versioning
-5. all people are welcome here as long as they obey the rules
+2. all people are welcome here as long as they obey the rules
+
+## Git
+
+When committing, please use the following git flow 
+
+1. choose an unassigned issue to work on
+2. assign yourself to it
+3. work in a branch off `develop` called `features/n-xxx` where the feature branch name is `features/4-git-docs`, for example
+4. commit freely to the feature branch
+5. PR to `develop` only working complete code
 
