@@ -1,6 +1,6 @@
 import sys
 from buildnumber import objects, exceptions, constants
-from pycommon.cli import CLI
+from common.cli import CLI
 
 
 def do_help():
