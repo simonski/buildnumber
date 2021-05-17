@@ -92,3 +92,4 @@ class Buildfile:
             new_version = int(old_version) + 1
 
         info["version"] = new_version
+

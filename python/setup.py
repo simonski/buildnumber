@@ -28,7 +28,7 @@ setup(
     ],
     keywords="buildnumber setuptools development",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
-    install_requires=["PyYAML==5.1.2", "simonski-pycommon"],
+    install_requires=["PyYAML==5.4", "simonski-pycommon"],
     test_suite="tests.test_suite",
     entry_points={"console_scripts": ["buildnumber=buildnumber:main"]},
 )
