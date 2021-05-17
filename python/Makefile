@@ -9,7 +9,7 @@ help:
 	@echo ""
 	@echo "   help           - this"
 	@echo "   build          - build wheel and test"
-	@echo "   upload         - push to nexus as 'buildnumber'"
+	@echo "   upload         - push to pypi as 'buildnumber'"
 	@echo "   clean          - remove build files"
 	@echo ""
 

@@ -12,13 +12,12 @@ def do_help():
         "buildnumber COMMAND OPTIONS   (-name <app name>) (-file <override filename>)"
     )
     print("")
-    print("  init      -type integer|semantic    - initialise a Buildfile entry")
-    print(
-        "  increment (major|minor|revision)    - increment by 1 (-dry_run - no increment)"
+    print("  init            -type integer|semantic   - initialise a Buildfile entry")
+    print("  increment/inc   [major|minor|revision]   - increment by 1 (-dry_run - no increment)"
     )
-    print("  get                                 - print current version")
-    print("  help                                - show this help")
-    print("  version                             - print the version of buildnumber")
+    print("  get                                      - print current version")
+    print("  help                                     - show this help")
+    print("  version                                  - print the version of buildnumber")
     print("")
 
 
@@ -34,7 +33,7 @@ def main():
 
     if command == "init":
         bf = objects.Buildfile(filename)
-        init_type = cli.get_or_die("-type")
+        init_type = cli.get_or_default("-type", "semantic")
         if init_type not in ["integer", "semantic"]:
             print("Error -type must be 'integer' or 'semantic'")
             sys.exit(1)
@@ -45,9 +44,9 @@ def main():
             bf.save()
         print(bf.get(name))
 
-    elif command == "increment":
+    elif command == "increment" or command == "inc":
         bf = objects.Buildfile(filename)
-        increment_type = cli.get_or_default("increment", "revision")
+        increment_type = cli.get_or_default(command, "revision")
         if increment_type not in ["major", "minor", "revision"]:
             print("Error, increment type must be 'major', 'minor' or 'revision'")
             sys.exit(1)
