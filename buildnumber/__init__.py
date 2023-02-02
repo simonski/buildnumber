@@ -25,7 +25,9 @@ def main():
     cli = CLI()
     command = cli.get_command()
     if cli.contains("-f"):
-        filename = cli.get("-f")
+        filename = cli.get_or_die("-f")
+    elif cli.contains("-file"):
+        filename = cli.get_or_die("-file")
     else:
         filename = "Buildfile"
 
