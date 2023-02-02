@@ -1,2 +1,0 @@
-[console_scripts]
-buildnumber = buildnumber:main
