@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+buildnumber/__init__.py
+buildnumber/__main__.py
+buildnumber/constants.py
+buildnumber/exceptions.py
+buildnumber/objects.py
+buildnumber.egg-info/PKG-INFO
+buildnumber.egg-info/SOURCES.txt
+buildnumber.egg-info/dependency_links.txt
+buildnumber.egg-info/entry_points.txt
+buildnumber.egg-info/requires.txt
+buildnumber.egg-info/top_level.txt

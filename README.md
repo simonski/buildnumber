@@ -23,7 +23,7 @@ Open source - fork and pull requests welcome!
 	git clone github.com/simonski/buildnumber
 	cd buildnumber/python
 	mkvirtualenv buildnumber
-	make 
+	pip install -r requirements.txt
 	make build
 
 ## Future Plans
